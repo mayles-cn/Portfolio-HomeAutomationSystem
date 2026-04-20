@@ -1,0 +1,54 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "msvc-base",
+      "hidden": true,
+      "generator": "Visual Studio 17 2022",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "binaryDir": "${sourceDir}/build",
+      "environment": {
+        "VSLANG": "1033"
+      },
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "C:/Qt/6.11.0/msvc2022_64",
+        "Qt6_DIR": "C:/Qt/6.11.0/msvc2022_64/lib/cmake/Qt6",
+        "QT_DIR": "C:/Qt/6.11.0/msvc2022_64/lib/cmake/Qt6"
+      }
+    },
+    {
+      "name": "msvc-debug",
+      "displayName": "MSVC Qt6 Debug",
+      "inherits": "msvc-base"
+    },
+    {
+      "name": "msvc-release",
+      "displayName": "MSVC Qt6 Release",
+      "inherits": "msvc-base"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "msvc-debug",
+      "displayName": "Build MSVC Qt6 Debug",
+      "configurePreset": "msvc-debug",
+      "configuration": "Debug",
+      "jobs": 12
+    },
+    {
+      "name": "msvc-release",
+      "displayName": "Build MSVC Qt6 Release",
+      "configurePreset": "msvc-release",
+      "configuration": "Release",
+      "jobs": 12
+    }
+  ]
+}

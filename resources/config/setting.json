@@ -1,0 +1,174 @@
+{
+  "__comment_file": "HomeAutomationSystem 运行时配置文件。用于外置 UI 布局、样式、文案、热键与路径候选。JSON 标准不支持注释，因此使用 __comment_* 字段写中文说明，程序会忽略这些字段。",
+  "__comment_priority": "配置优先级：环境变量 > config/setting.json > 代码默认值。建议所有可调 UI 参数都在本文件维护。",
+
+  "ui": {
+    "__comment_main_widget": "MainWidget 配置。目标是把主界面和调试面板的可调项尽量脱离编译。",
+    "main_widget": {
+      "__comment_window": "主窗口尺寸。",
+      "window_width": 1360,
+      "window_height": 840,
+
+      "__comment_panel": "右侧调试面板尺寸与吸附间距。gap=0 表示无缝贴合主窗口右侧。",
+      "debug_panel_width": 560,
+      "debug_panel_gap": 14,
+
+      "__comment_runtime": "拖拽区域高度、实时定时器间隔（毫秒）和无帧时状态心跳刷新间隔。",
+      "drag_area_height": 58,
+      "realtime_timer_interval_ms": 16,
+      "status_heartbeat_interval_ms": 400,
+
+      "__comment_camera_probe": "相机探测范围和每次探测等待时长（毫秒）。用于自动尝试可用摄像头。",
+      "camera_probe_min_index": 0,
+      "camera_probe_max_index": 5,
+      "camera_probe_wait_ms": 180,
+
+      "__comment_camera_spin": "调试面板中摄像头索引输入框范围。",
+      "camera_index_spin_min": 0,
+      "camera_index_spin_max": 10,
+
+      "__comment_hotkey": "调试面板切换热键，默认 F9。支持 Qt 可识别按键字符串。",
+      "toggle_debug_hotkey": "F9",
+
+      "__comment_layout": "主布局与调试面板布局参数（单位像素）。",
+      "main_layout_margin": 28,
+      "main_layout_spacing": 20,
+      "debug_panel_margin": 16,
+      "debug_panel_spacing": 12,
+      "camera_preview_min_height": 176,
+      "camera_control_spacing": 10,
+      "mask_layout_vertical_spacing": 8,
+      "sequence_control_spacing": 12,
+      "sequence_step_button_width": 40,
+      "sequence_step_button_height": 40,
+      "sequence_player_width_ratio": 0.5,
+      "sequence_player_height_ratio": 0.35,
+      "scene_control_spacing": 22,
+      "model_viewport_min_width": 700,
+      "model_viewport_min_height": 420,
+      "snapshot_transition_ms": 800,
+
+      "__comment_texts": "界面文案。可按需要本地化或统一用语。",
+      "text_prediction_waiting": "当前识别：等待中",
+      "text_prediction_waiting_animated": "当前识别：等待中...",
+      "text_prediction_failed": "当前识别：推理失败",
+      "text_model_uninitialized": "模型：未初始化",
+      "text_tracker_not_started": "跟踪：未启动",
+      "text_tracker_stopped": "跟踪：已停止",
+      "text_camera_preview_hint": "F9 打开调试面板",
+      "text_draw_skeleton": "绘制骨架",
+      "text_apply_camera_index": "应用索引",
+      "text_camera_waiting": "骨架画面：等待实时识别",
+      "text_camera_stopped": "骨架画面：已停止实时识别",
+      "text_mask_title": "屏蔽手势输出",
+      "text_last_decision_none": "最近触发：无",
+      "text_realtime_start": "启动实时识别",
+      "text_realtime_stop": "停止实时识别",
+      "text_debug_panel_title": "Gesture Debug Panel",
+      "text_model_loading": "模型状态：加载中",
+      "text_model_ready": "模型状态：已加载",
+      "text_model_missing": "模型状态：未找到 home.obj",
+      "text_snapshot_empty": "机位：无",
+      "text_area_light_on": "顶灯：开启",
+      "text_area_light_off": "顶灯：关闭",
+
+      "__comment_labels": "默认可屏蔽手势与显示名称映射。display_names 用于 UI 显示名。",
+      "mask_default_labels": [
+        "open",
+        "close",
+        "swipe_right",
+        "point_left",
+        "point_right",
+        "cheese"
+      ],
+      "display_names": {
+        "idle": "无意义",
+        "open": "张开",
+        "close": "关闭",
+        "swipe_right": "右滑",
+        "point_left": "左指",
+        "point_right": "右指",
+        "cheese": "茄子"
+      },
+
+      "__comment_style": "UI 样式参数。默认是浅色、圆角、留白风格，可按需继续调整。",
+      "style": {
+        "font_family": "Microsoft YaHei",
+        "font_size": 14,
+        "result_font_size": 30,
+        "border_radius_px": 0,
+
+        "checkbox_indicator_size": 12,
+        "checkbox_spacing": 4,
+        "button_padding": "8px 16px",
+        "spinbox_padding": "4px 10px",
+
+        "color_window_background": "#F1F3F5",
+        "color_window_text": "#31363D",
+        "color_result_text": "#525960",
+        "color_camera_preview_background": "#EDF0F3",
+        "color_camera_preview_border": "#D3D8DE",
+        "color_button_background": "#F8FAFB",
+        "color_button_border": "#D2D8DE",
+        "color_button_text": "#3A4048",
+        "color_button_hover_background": "#ECEFF3",
+        "color_button_disabled_background": "#EEF1F4",
+        "color_button_disabled_border": "#E2E6EB",
+        "color_button_disabled_text": "#A2A9B3",
+        "color_checkbox_indicator_border": "#BFC6CF",
+        "color_checkbox_indicator_background": "#FFFFFF",
+        "color_checkbox_checked_background": "#C8CDD4",
+        "color_checkbox_checked_border": "#B8BEC7",
+        "color_spinbox_background": "#FFFFFF",
+        "color_spinbox_border": "#D2D8DE",
+        "color_spinbox_text": "#3A4048",
+
+        "skeleton_background_color": "#F4F6F8",
+        "skeleton_left_color": "#88919D",
+        "skeleton_right_color": "#B2BAC4",
+        "skeleton_line_width": 2.0,
+        "skeleton_point_size": 5.0
+      }
+    }
+  },
+
+  "runtime": {
+    "__comment_paths": "运行时文件候选路径。相对路径以程序运行目录（app exe 目录）为基准。",
+    "paths": {
+      "model_candidates": [
+        "models/cpp_model.json",
+        "../../../resources/models/cpp_model.json"
+      ],
+      "bridge_candidates": [
+        "tools/hand_landmarker_stream.exe",
+        "../../../tools/hand_landmarker_stream.exe",
+        "D:/SomeCppProjects/mediapipe/bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_landmarker_stream.exe"
+      ],
+      "hand_task_candidates": [
+        "models/hand_landmarker.task",
+        "../../../resources/models/hand_landmarker.task"
+      ],
+      "default_image_sequence_folder": "AirConditioner",
+      "image_sequence_folder_order": [
+        "AirConditioner",
+        "WashMachine",
+        "KitchenHood",
+        "ElectricFan",
+        "Sounder",
+        "Curtain",
+        "CoffeeMarker",
+        "HomeKey"
+      ],
+      "image_sequence_root_candidates": [
+        "images",
+        "../../../resources/images"
+      ],
+      "home_obj_candidates": [
+        "models/home.obj",
+        "../../../resources/models/home.obj"
+      ],
+      "camera_snapshot_store": "config/camera_snapshots.json",
+      "runtime_log_default": "logs/realtime_prediction.jsonl"
+    }
+  }
+}
